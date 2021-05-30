@@ -1,0 +1,13 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+
+    <form class="mb-3" action="{% url 'task:add' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input class="btn btn-primary mb-3" type="submit" value="Add Task">
+    </form>
+   
+    
+{% endblock %}

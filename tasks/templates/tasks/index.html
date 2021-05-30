@@ -1,0 +1,53 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+    <h1>To Do List</h1>
+
+    <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item">{{ task }}</li>
+        {% empty %}
+            <li class="list-group-item">Currently no set tasks</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'task:add' %}">Add a task</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'task:remove' %}">Remove a task</a>
+        </li>
+    </ul>
+
+    
+        {% if messages %}
+        <div class="alert alert-danger" role="alert">
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        </div>
+        {% endif %} 
+    
+
+    
+    
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
